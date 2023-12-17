@@ -17,7 +17,10 @@ router.post('/createuser',[
     body('username').notEmpty().isAlphanumeric().isLength(3,20),
     body('email').isEmail(),
     body('password').isLength({min:8}),
-    body('gender').notEmpty().isAlphanumeric().isLength(4,6)
+    body('gender').notEmpty().isAlphanumeric().isLength(4,6),
+    body('phone').notEmpty().isAlphanumeric().isLength(4,10),
+    body('city').notEmpty().isAlphanumeric().isLength(4,10)
+
 
 
 ] ,async (req, res) => {
@@ -45,6 +48,8 @@ router.post('/createuser',[
         username: req.body.username,
         email: req.body.email,
         gender: req.body.gender,
+        phone: req.body.phone,
+        city: req.body.city,
         password: secPassword,
         repeatpassword: secPassword,
 
